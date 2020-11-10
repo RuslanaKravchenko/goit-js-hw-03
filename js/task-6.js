@@ -1,55 +1,28 @@
 'use strict'
-// const numbers = [];
-// let total = 0;
+const products = [
+  { name: 'Радар', price: 1300, quantity: 4 },
+  { name: 'Сканер', price: 2700, quantity: 3 },
+  { name: 'Дроид', price: 400, quantity: 7 },
+  { name: 'Захват', price: 1200, quantity: 2 },
+];
 
-// while (true) {
-//   let input = prompt('Введите число');
-//   if (input === null) {
-//     break;
-//   }
-
-//   input = Number(input);
-// const notANumber = Number.isNaN(input);
-
-//   if (notANumber) {
-//     alert('Было введено не число, попробуйте еще раз');
-//     continue;
-//   } 
-
-//   numbers.push(input);
+const calculateTotalPrice = function(array, prop) {
+   let result = 0;
   
-// }
-// if (numbers.length > 0) {
-// for (const number of numbers) {
-//     total += number;
-// }
-//   console.log(`Общая сумма чисел равна ${total}`);
-// }
+  for (const object of array) {
+    if (object['name'] === prop) {
+     let temp = object['price'] * object['quantity'];
+      
+      result += temp;
+    }
+    
+    }
+   return result;
+};
 
-// =====================Вариант с формой ==================
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(calculateTotalPrice(products, 'Радар')); // 5200
 
-const valueInputRef = document.querySelector('.js-value');
-const addValueBtn = document.querySelector('.js-add-value');
-const calcBtn = document.querySelector('.js-calculate'); 
-
-const numbers = [];
-let total = 0;
-
-addValueBtn.addEventListener('click', function () {
-  const value = Number(valueInputRef.value);
-  
-  numbers.push(value);
-  valueInputRef.value = '';
-  
-  console.log(numbers);
-});
-
-calcBtn.addEventListener('click', function () {
-  for (const number of numbers) {
-    total += number;
-  }
-  console.log(`Общая сумма чисел равна ${total}`);
-
-});
-
-
+console.log(calculateTotalPrice(products, 'Дроид')); // 2800
