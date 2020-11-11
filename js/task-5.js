@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const products = [
   { name: 'Радар', price: 1300, quantity: 4 },
   { name: 'Сканер', price: 2700, quantity: 3 },
@@ -6,18 +6,17 @@ const products = [
   { name: 'Захват', price: 1200, quantity: 2 },
 ];
 
-const getAllPropValues = function(array, prop) {
- const result = [];
-  
+const getAllPropValues = function (array, prop) {
+  const result = [];
+
   for (const object of array) {
-    for(const key in object) {
+    for (const key in object) {
       if (key === prop) {
         result.push(object[key]);
       }
-      
     }
   }
-  return  result;
+  return result;
 };
 
 /*

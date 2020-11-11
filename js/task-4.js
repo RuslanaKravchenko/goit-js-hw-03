@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 // const countTotalSalary = function(employees) {
 //  const salaryArr = Object.values(employees);
 //   let total = 0;
@@ -9,16 +9,14 @@
 //   return total;
 // };
 
-
 // =============Вариант второй==========
 
-const countTotalSalary = function(employees) {
+const countTotalSalary = function (employees) {
   let total = 0;
-  for ( const key in employees) {
+  for (const key in employees) {
     total += employees[key];
   }
   return total;
-
 };
 
 /*

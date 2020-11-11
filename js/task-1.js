@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 let message = '';
 const user = {
   name: 'Mango',
@@ -13,8 +13,7 @@ user.premium = false;
 
 const keys = Object.keys(user);
 for (const key of keys) {
-  message +=`${key}: ${user[key]}\n`;
- 
- }
+  message += `${key}: ${user[key]}\n`;
+}
 
- console.log(message);
+console.log(message);

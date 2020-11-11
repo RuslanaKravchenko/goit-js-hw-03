@@ -1,11 +1,11 @@
-'use strict'
-const findBestEmployee = function(employees) {
+'use strict';
+const findBestEmployee = function (employees) {
   let BestEmployee = '';
   let max = 0;
   for (const key in employees) {
-  if (employees[key] > max) {
-     BestEmployee = key;
-     max = employees[key];
+    if (employees[key] > max) {
+      BestEmployee = key;
+      max = employees[key];
     }
   }
   return BestEmployee;
