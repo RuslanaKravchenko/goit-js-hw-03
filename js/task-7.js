@@ -114,11 +114,14 @@ const account = {
   },
 };
 
-account.deposit(500);
+const { deposit } = account;
+
+const _deposit = deposit.bind(account);
+_deposit(500);
 console.log(account.transactions);
-account.deposit(500);
+_deposit(500);
 console.log(account.transactions);
-account.deposit(300);
+_deposit(300);
 console.log(account.transactions);
 
 console.log(account.getBalance());

@@ -231,14 +231,37 @@
 // const masha = { name: 'Маша', age: 28 };
 // const users = [vasya, petya, masha];
 
-// for (const user of users) {
+// const usersName = [];
 
+// for (const user of users) {
+//   usersName.push(user.name);
 // }
+
+// console.log('usersName :>> ', usersName);
 
 // ==================================================================================================================================
 // Task 10.
 // Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую количество гласных, которые содержатся в строке.
 // Гласными являются «a», «e», «i», «o», «u».
+
+// const findVowels = string => {
+//   let result = 0;
+//   const stringToLowercase = string.toLowerCase();
+//   for (const letter of stringToLowercase) {
+//     if (
+//       letter === 'a' ||
+//       letter === 'e' ||
+//       letter === 'i' ||
+//       letter === 'o' ||
+//       letter === 'u'
+//     ) {
+//       result += 1;
+//     }
+//   }
+//   return result;
+// };
+
+// console.log('findVowels :>> ', findVowels('Hello world!'));
 // ==================================================================================================================================
 // Task 11.
 // -=Анаграмма=-
@@ -246,6 +269,32 @@
 // Постановка
 // Нужно написать функцию, которая проверяет, являются ли две строки анаграммами, причем регистр букв не имеет значения. Учитываются лишь символы; пробелы или знаки препинания в расчет не берутся.
 // anagram('finder', 'Friend');
+
+const findAnagram = (str1, str2) => {
+  const str1ToLower = str1.toLowerCase();
+  const str2ToLower = str2.toLowerCase();
+  const str1ToLowerArr = [...str1ToLower];
+  const str2ToLowerArr = [...str2ToLower];
+
+  for (let i = 0; i < str1ToLowerArr.length; i += 1) {
+    if (str2ToLowerArr.includes(str1ToLowerArr[i])) {
+      str2ToLowerArr.splice(str2ToLowerArr.indexOf(str1ToLowerArr[i]), 1);
+      str1ToLowerArr.splice(i, 1);
+      console.log('object1 :>> ', str1ToLowerArr);
+      console.log('object2 :>> ', str2ToLowerArr);
+      i -= 1;
+      continue;
+    }
+    console.log('----object1 :>> ', str1ToLowerArr);
+    console.log('-----object2 :>> ', str2ToLowerArr);
+    return false;
+  }
+  console.log('----object1 :>> ', str1ToLowerArr);
+  console.log('-----object2 :>> ', str2ToLowerArr);
+  return str1ToLowerArr.length === str2ToLowerArr.length ? true : false;
+};
+
+console.log('findAnagram :>> ', findAnagram('finder', 'Frien d'));
 // ==================================================================================================================================
 // Task 12.
 // -=Палиндром=-
